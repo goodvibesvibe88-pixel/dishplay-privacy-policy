@@ -1,57 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dishplay Privacy Policy</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DishPlay: what can I make tonight?</title>
+<meta name="description" content="DishPlay is a bilingual recipe app for iPhone. Keep your dishes in one place, turn the ingredients you have into a recipe, and cook step by step in English or Spanish.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DishPlay: what can I make tonight?">
+<meta property="og:description" content="A recipe app for iPhone that starts with what you already have. In English and Spanish.">
+<meta property="og:image" content="dishplay.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#D4336A">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;padding:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<style>
+/* Layout: a kitchen pass. Hero plates the phone on a rim-ringed plate; a dark plum band serves the featured app; open tickets wait below. */
+:root{
+  --bg:#FBF6F9; --surface:#FFFFFF; --ink:#23121C; --muted:#6B5763; --line:#E9DBE3;
+  --accent:#D4336A; --accent-soft:#FBE3EC; --on-accent:#FFFFFF; --star:#E9A70F;
+  --band:#2E1226; --band-ink:#FBEFF5; --band-muted:#CDB3C3; --band-line:#4D2A43; --band-accent:#FF7FA8;
+  --bezel:#15090F;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#160B13; --surface:#21131C; --ink:#F7ECF2; --muted:#B79FAE; --line:#3A2633;
+  --accent:#F0588A; --accent-soft:#3A1528; --on-accent:#1B0A12; --star:#F5BD3A;
+  --band:#26101F; --band-ink:#FBEFF5; --band-muted:#C9AEBE; --band-line:#45263B; --band-accent:#FF7FA8;
+  --bezel:#070305; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#160B13; --surface:#21131C; --ink:#F7ECF2; --muted:#B79FAE; --line:#3A2633;
+  --accent:#F0588A; --accent-soft:#3A1528; --on-accent:#1B0A12; --star:#F5BD3A;
+  --band:#26101F; --band-ink:#FBEFF5; --band-muted:#C9AEBE; --band-line:#45263B; --band-accent:#FF7FA8;
+  --bezel:#070305; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.mark i{width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--accent)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:36px 84px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(2.9rem,8.2vw,6.3rem);line-height:.92;font-weight:800;margin-block:18px 26px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:34em;color:var(--muted);font-size:1.12rem;margin:0}
+.hero p strong{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;border:1.5px solid var(--ink);font-size:1rem;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.fill{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+
+.plate{position:relative;display:grid;place-items:center;padding-block:10px}
+.plate::before{content:"";position:absolute;width:min(108%,460px);aspect-ratio:1;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 18px var(--bg),0 0 0 20px var(--accent),0 0 0 44px var(--bg),0 0 0 45px var(--line)}
+.phone{position:relative;width:min(290px,66vw);padding:10px;background:var(--bezel);border-radius:50px;transform:rotate(4deg);
+  box-shadow:0 30px 60px -20px rgba(35,18,28,.55)}
+.phone img{display:block;width:100%;aspect-ratio:643/1405;object-fit:cover;border-radius:41px}
+
+/* band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .wrap{padding-block:84px}
+.band .label{color:var(--band-accent)}
+.band-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:54px}
+.band-head > *{min-width:0}
+.band h2{font-size:clamp(2.6rem,7vw,5rem);line-height:.95;font-weight:800;margin-top:14px}
+.band-head p{margin:0;color:var(--band-muted);max-width:32em}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;border:1px solid var(--band-line);padding:6px 12px;border-radius:999px;margin-top:20px;color:var(--band-ink)}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--band-accent)}
+.cols{display:grid;grid-template-columns:1.25fr .75fr;gap:56px}
+.cols > *{min-width:0}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;list-style:none;margin:0;padding:0}
+.feats li{padding-block:20px;border-top:1px solid var(--band-line)}
+.feats h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.feats p{margin:0;color:var(--band-muted);font-size:.97rem}
+.menu{border:1px solid var(--band-line);border-radius:6px;padding:26px 24px;align-self:start}
+.menu ol{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:14px}
+.menu li{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:500;font-size:1.12rem}
+.menu li::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--band-line);transform:translateY(-4px);min-width:16px}
+.menu li span{order:2;font-family:var(--mono);font-size:.9rem;white-space:nowrap}
+.menu li span b{color:var(--star);font-weight:400}
+.menu small{display:block;margin-top:18px;color:var(--band-muted);font-size:.82rem}
+
+/* prep */
+.prep{padding-block:84px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1;margin-top:10px}
+.sec-head p{margin:0;color:var(--muted);max-width:26em}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ticket{border:1.5px dashed var(--line);border-radius:6px;padding:24px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-width:0}
+.ticket h3{font-size:1.35rem;font-weight:700}
+.ticket p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+.ticket.live{border:1.5px solid var(--accent);background:var(--surface);text-decoration:none}
+.ticket.live .label{color:var(--accent)}
+
+/* about */
+.about{border-top:1px solid var(--line)}
+.about .wrap{padding-block:72px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.about .wrap > *{min-width:0}
+.about h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.05;margin-top:10px}
+.about p{margin:0 0 1em;max-width:36em;color:var(--muted);font-size:1.08rem}
+.about p:first-child{color:var(--ink)}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero,.band-head,.cols,.about .wrap{grid-template-columns:1fr}
+  .hero{padding-block:16px 96px;gap:72px}
+  .tickets{grid-template-columns:1fr}
+  .ticket{min-height:0}
+  .plate::before{width:min(92%,380px)}
+  .band .wrap,.prep{padding-block:60px}
+}
+@media (max-width:520px){ .feats{grid-template-columns:1fr} .nav ul{gap:18px} }
+@media (prefers-reduced-motion:reduce){ .btn{transition:none} }
+.nav ul{align-items:center}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.lang button{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;border:0;background:transparent;color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.lang button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+footer a{color:inherit;text-decoration:none}
+footer a:hover{color:var(--accent)}
+</style>
 </head>
 <body>
 
-<h1>Privacy Policy for Dishplay</h1>
-<p><strong>Effective Date:</strong> 04/22/2026</p>
+<header class="wrap nav">
+  <a class="mark" href="#top"><i></i>DishPlay</a>
+  <ul>
+    <li><a href="#dishplay" data-es="Funciones">Features</a></li>
+    <li><a href="#prep" data-es="Planes">Plans</a></li>
+    <li class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-es" data-lang="es" aria-pressed="false">ES</button>
+    </li>
+  </ul>
+</header>
 
-<p>Dishplay (“we,” “our,” or “us”) respects your privacy and is committed to protecting it. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <span class="label" data-es="App de recetas para iPhone">Recipe app for iPhone</span>
+      <h1 data-es="¿Qué puedo preparar <em>hoy?</em>">What can I make <em>tonight?</em></h1>
+      <p data-es="<strong>DishPlay</strong> es una app de recetas que empieza con lo que ya tienes. Guarda tus platos en un solo lugar, búscalos por nombre o ingrediente y resuelve la pregunta diaria de qué cocinar."><strong>DishPlay</strong> is a recipe app that starts with what you already have. Keep your dishes in one place, search them by name or ingredient, and get an answer to the daily question of what to cook.</p>
+      <div class="cta">
+        <a class="btn fill" href="#dishplay" data-es="Ver las funciones">See the features</a>
+        <a class="btn" href="#prep" data-es="Ver los planes">See the plans</a>
+      </div>
+    </div>
+    <div class="plate">
+      <div class="phone"><img src="dishplay.jpg" data-es-alt="Pantalla de inicio de DishPlay: una barra de búsqueda, los botones What can I make y Find a recipe, y tarjetas de recetas de Spaghetti Carbonara, Classic Pancakes y Empanada de Leche" alt="DishPlay home screen: a search bar, What can I make and Find a recipe buttons, and recipe cards for Spaghetti Carbonara, Classic Pancakes and Empanada de Leche"></div>
+    </div>
+  </section>
 
-<h2>1. Information We Collect</h2>
+  <section class="band" id="dishplay">
+    <div class="wrap">
+      <div class="band-head">
+        <div>
+          <span class="label" data-es="Funciones">Features</span>
+          <h2 data-es="Lo que trae">What's inside</h2>
+          <span class="chip" data-es="Muy pronto · iPhone">Coming soon · iPhone</span>
+        </div>
+        <p data-es="Tus recetas, tu lista de compras y tu cocina, en una app que habla tu idioma.">Your recipes, your shopping list and your kitchen, in one app that speaks your language.</p>
+      </div>
+      <div class="cols">
+        <ul class="feats">
+          <li><h3 data-es="¿Qué puedo preparar?">What can I make?</h3><p data-es="Escribe los ingredientes que tienes y recibe una receta para cocinar con ellos.">Type the ingredients you have and get a recipe to cook with them.</p></li>
+          <li><h3 data-es="Buscar una receta">Find a recipe</h3><p data-es="Busca un plato por nombre y guarda el que te guste en tu colección.">Look up a dish by name and keep the one you like in your collection.</p></li>
+          <li><h3 data-es="Modo cocina">Cook mode</h3><p data-es="Sigue la receta paso a paso con letra grande. La pantalla no se apaga mientras cocinas.">Follow the recipe one step at a time in large type. The screen stays on while you cook.</p></li>
+          <li><h3 data-es="Lista de compras">Shopping list</h3><p data-es="Elige varias recetas y DishPlay junta sus ingredientes en una lista que puedes compartir.">Pick a few recipes and DishPlay gathers their ingredients into one list you can share.</p></li>
+          <li><h3 data-es="Busca, califica y ordena">Search, rate and sort</h3><p data-es="Escribe «espinaca» y aparecen todos los platos que la llevan. Las estrellas marcan tus favoritos.">Type "spinach" and every dish that uses it shows up. Stars mark your favorites.</p></li>
+          <li><h3 data-es="En español y en inglés">In English and Spanish</h3><p data-es="La app abre en el idioma de tu teléfono. También habla francés, portugués, italiano y alemán.">The app opens in your phone's language. It also speaks French, Portuguese, Italian and German.</p></li>
+        </ul>
+        <aside class="menu">
+          <span class="label" data-es="En el menú">On the menu</span>
+          <ol>
+            <li>Spaghetti Carbonara <span>5 <b>★</b></span></li>
+            <li>Classic Pancakes <span>4 <b>★</b></span></li>
+            <li>Empanada de Leche <span>4 <b>★</b></span></li>
+          </ol>
+          <small data-es="Recetas de la captura de arriba.">Recipes from the screenshot above.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-<h3>a. Personal Information</h3>
-<p>Name and email address (when you sign in using Google)</p>
+  <section class="wrap prep" id="prep">
+    <div class="sec-head">
+      <div>
+        <span class="label" data-es="Planes">Plans</span>
+        <h2 data-es="Casi listo para servir.">Almost ready to serve.</h2>
+      </div>
+      <p data-es="DishPlay llega pronto al App Store. Esta página tendrá el enlace de descarga el día del lanzamiento.">DishPlay is coming soon to the App Store. This page will carry the download link on launch day.</p>
+    </div>
+    <div class="tickets" style="margin-top:36px">
+      <div class="ticket">
+        <div><span class="label" data-es="Gratis">Free</span><h3 data-es="Tu recetario">Your recipe box</h3>
+        <p data-es="Guarda, busca, califica y cocina tus recetas. Arma listas de compras. Todo se queda en tu iPhone, sin cuenta.">Save, search, rate and cook your recipes. Build shopping lists. Everything stays on your iPhone, no account needed.</p></div>
+      </div>
+      <div class="ticket live">
+        <div><span class="label">DishPlay Plus</span><h3 data-es="7 días gratis">7 days free</h3>
+        <p data-es="¿Qué puedo preparar?, fotos generadas, traducción de recetas y la misma colección en tus otros teléfonos. Mensual o anual.">What can I make?, generated photos, recipe translation, and the same collection on your other phones. Monthly or yearly.</p></div>
+      </div>
+      <div class="ticket">
+        <div><span class="label" data-es="Privacidad">Privacy</span><h3 data-es="Sin anuncios ni rastreo">No ads, no tracking</h3>
+        <p data-es="DishPlay no vende tus datos ni usa analítica. Puedes eliminar tu cuenta desde la app.">DishPlay doesn't sell your data or use analytics. You can delete your account from inside the app.</p></div>
+        <a href="privacy/" data-es="Leer la política">Read the policy</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-<h3>b. User Content</h3>
-<p>Recipes, links, notes, and other content you save within the app.</p>
-<p><strong>Users are responsible for the content they save and share within the app.</strong></p>
+<footer><div class="wrap"><span class="label">© 2026 DishPlay</span><span class="label"><a href="privacy/" data-es="Privacidad">Privacy</a> · <a href="support/" data-es="Soporte">Support</a> · <span data-es="Hecho desde cero">Built from scratch</span></span></div></footer>
 
-<h3>c. Device & Usage Information</h3>
-<p>Device type, operating system, and app usage data.</p>
+<script>
+(function(){
+  var els = document.querySelectorAll('[data-es]');
+  els.forEach(function(el){ el.setAttribute('data-en', el.innerHTML); });
+  var img = document.querySelector('[data-es-alt]'); var altEn = img.alt;
+  function setLang(l){
+    els.forEach(function(el){ el.innerHTML = el.getAttribute(l === 'es' ? 'data-es' : 'data-en'); });
+    img.alt = l === 'es' ? img.getAttribute('data-es-alt') : altEn;
+    document.documentElement.lang = l;
+    document.title = l === 'es' ? 'DishPlay: ¿qué puedo preparar hoy?' : 'DishPlay: what can I make tonight?';
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+    try { localStorage.setItem('lang', l); } catch(e){}
+  }
+  var saved = null; try { saved = localStorage.getItem('lang'); } catch(e){}
+  var start = saved || ((navigator.language || '').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+  if (start === 'es') setLang('es');
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+})();
+</script>
 
-<h3>d. Local Storage Data</h3>
-<p>Information such as saved recipes and preferences may be stored locally on your device.</p>
-
-<h2>2. How We Use Your Information</h2>
-<p>We use your data to provide and improve the app, personalize your experience, and enable Google login.</p>
-
-<h2>3. Google Sign-In</h2>
-<p>Dishplay allows you to sign in using Google. We receive basic profile information like your name and email. We do not access your password.</p>
-
-<h2>4. Sharing Your Information</h2>
-<p>We do not sell your personal data. We may share data with service providers or if required by law.</p>
-
-<h2>5. Data Storage and Security</h2>
-<p>Data may be stored locally on your device and/or secure servers.</p>
-
-<h2>6. Your Rights</h2>
-<p>You may access, update, or delete your data.</p>
-
-<h2>7. Children’s Privacy</h2>
-<p>Dishplay is intented for children of all ages with adult supervision.</p>
-
-<h2>8. Third-Party Services</h2>
-<p>We may use third-party services such as Google Sign-In.</p>
-
-<h2>9. Changes</h2>
-<p>We may update this policy from time to time.</p>
-
-<h2>10. Contact</h2>
-<p>Email: goodvibesvibe88@gmail.com</p>
-
-</body>
-</html>
+</body></html>

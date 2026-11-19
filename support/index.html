@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DishPlay support</title>
+  <meta name="description" content="Contact DishPlay about recipes, photos, sign-in, DishPlay Plus, and account deletion.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="stylesheet" href="../legal.css">
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="mark" href="../"><i></i>DishPlay</a>
+    <ul>
+      <li><a href="../" data-es="Inicio">Home</a></li>
+      <li><a href="../privacy/" data-es="Privacidad">Privacy</a></li>
+      <li><a href="./" aria-current="page" data-es="Soporte">Support</a></li>
+      <li class="lang" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </li>
+    </ul>
+  </header>
+  <main class="wrap narrow">
+    <span class="label">DishPlay</span>
+    <h1 data-es="Soporte">Support</h1>
+    <p class="lede" data-es="Escribe por recetas, fotos, inicio de sesión, DishPlay Plus o la eliminación de la cuenta.">Questions about recipes, photos, sign-in, DishPlay Plus, and account deletion come here.</p>
+    <section class="card">
+      <h2 data-es="Contacto">Contact</h2>
+      <dl>
+        <div class="row">
+          <dt data-es="Correo">Email</dt>
+          <dd><a href="mailto:henryelrocker@gmail.com">henryelrocker@gmail.com</a></dd>
+        </div>
+        <div class="row">
+          <dt data-es="Incluye">Include</dt>
+          <dd data-es="El correo de la cuenta de Apple que usas en DishPlay y una descripción breve de lo que estabas haciendo.">The email address on the Apple account used in DishPlay, and a short description of what you were doing.</dd>
+        </div>
+        <div class="row">
+          <dt data-es="Eliminación">Deletion</dt>
+          <dd data-es="En la app: Ajustes › Usar en otro teléfono › Eliminar cuenta. También puedes pedirla en el mismo correo. Se eliminan la cuenta y las recetas y fotos guardadas con ella.">In the app: Settings › Use on another phone › Delete account. You can also request it in the same email. This removes the account and the recipes and photos stored with it.</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span class="label">© 2026 DishPlay</span>
+      <span class="label"><a href="../privacy/" data-es="Privacidad">Privacy policy</a></span>
+    </div>
+  </footer>
+  <script>
+  (function () {
+    var els = document.querySelectorAll('[data-es]');
+    els.forEach(function (el) { el.setAttribute('data-en', el.innerHTML); });
+    function setLang(l) {
+      els.forEach(function (el) { el.innerHTML = el.getAttribute(l === 'es' ? 'data-es' : 'data-en'); });
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.lang === l));
+      });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    var start = saved || ((navigator.language || '').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+    if (start === 'es') setLang('es');
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.dataset.lang); });
+    });
+  })();
+  </script>
+</body>
+</html>
